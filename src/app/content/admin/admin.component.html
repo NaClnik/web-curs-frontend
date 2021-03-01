@@ -1,1 +1,13 @@
-<p>admin works!</p>
+<app-admin-header [sideNavDrawer]="drawer" [titleText]="title"></app-admin-header>
+<app-admin-sidenav (setDrawer)="setSideNav($event)">
+  <ng-container side-content>
+    <mat-selection-list #shoes [multiple]="false" class="nav-list">
+      <mat-list-option [routerLink]="">Переход сюда</mat-list-option>
+      <mat-list-option [routerLink]="">Нет, сюда</mat-list-option>
+      <mat-list-option [routerLink]="">Давай сюда кликай</mat-list-option>
+    </mat-selection-list>
+  </ng-container>
+  <ng-container main-content>
+    <router-outlet></router-outlet>
+  </ng-container>
+</app-admin-sidenav>
