@@ -15,6 +15,10 @@ export const routes: Routes = [
   {
     path: 'user/:userId',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule)
+  },
+  {
+    path: 'hire_employee',
+    loadChildren: () => import('./hire-employee/hire-employee.module').then((m) => m.HireEmployeeModule)
   }
 ];
 

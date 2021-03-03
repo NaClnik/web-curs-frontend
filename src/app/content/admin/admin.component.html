@@ -2,7 +2,7 @@
 <app-admin-sidenav (setDrawer)="setSideNav($event)">
   <ng-container side-content>
     <mat-selection-list #shoes [multiple]="false" class="nav-list">
-      <mat-list-option [routerLink]="">Переход сюда</mat-list-option>
+      <mat-list-option [routerLink]="'/admin/hire_employee'">Нанять работника</mat-list-option>
       <mat-list-option [routerLink]="">Нет, сюда</mat-list-option>
       <mat-list-option [routerLink]="">Давай сюда кликай</mat-list-option>
     </mat-selection-list>

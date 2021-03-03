@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit{
     };
 
     this.formGroup = this.fb.group({
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     }); // formGroup.
   } // ngOnInit.
@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit{
     this.loginService.tryWriteApiTokenToLocalStorage(this.formGroup.value).subscribe(data => {
       if (data.hasError){
         this.error = data;
-        console.log(this.error);
       } else {
         this.router.navigate([data.redirect_to]);
       } // if.
