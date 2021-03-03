@@ -21,6 +21,7 @@ export class AddApiTokenHeaderInterceptorService implements HttpInterceptor{
 
     const headers = req.headers.append('Authorization', `Bearer ${apiToken}`);
     const authReq = req.clone({headers});
+    console.log(authReq);
     return next.handle(authReq);
   }
 }

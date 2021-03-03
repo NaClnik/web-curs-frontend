@@ -8,14 +8,20 @@ import {catchError} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiTokenService {
+  private readonly itemTitle = 'api_token'
+
   constructor(
     private readonly http: HttpClient
   ) {
   }
 
   public getApiToken(): string|null{
-    return localStorage.getItem('api_token');
+    return localStorage.getItem(this.itemTitle);
   } // getApiToken.
+
+  public removeApiToken(): void{
+    localStorage.removeItem(this.itemTitle);
+  } // removeApiToken.
 
   public getRoleByApiToken(): Observable<IRoleResponse | null>{
     const token = this.getApiToken();

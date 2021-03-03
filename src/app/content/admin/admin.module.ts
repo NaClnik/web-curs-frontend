@@ -5,6 +5,7 @@ import {AdminRoutingModule} from './admin-routing.module';
 import { AdminSidenavComponent } from './admin-sidenav/admin-sidenav.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import {SharedModule} from '../../shared/shared.module';
+import { AdminMainComponent } from './content/admin-main/admin-main.component';
 
 
 
@@ -12,7 +13,7 @@ import {SharedModule} from '../../shared/shared.module';
   declarations: [
     AdminComponent,
     AdminSidenavComponent,
-    AdminHeaderComponent
+    AdminHeaderComponent,
   ],
   imports: [
     CommonModule,

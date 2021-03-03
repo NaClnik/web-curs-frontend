@@ -6,7 +6,7 @@ import {AddBackendUrlInterceptorService} from './backend/add-backend-url-interce
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ApiTokenService} from './services/api-token.service';
 import {AddApiTokenHeaderInterceptorService} from './backend/add-api-token-header-interceptor.service';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
 import {MaterialModule} from './material.module';
 
 
@@ -16,12 +16,18 @@ import {MaterialModule} from './material.module';
     CommonModule,
     HttpClientModule,
     FlexLayoutModule,
-    MaterialModule
+    FlexModule,
+    MaterialModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AddBackendUrlInterceptorService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AddApiTokenHeaderInterceptorService,
       multi: true
     },
   ] // providers.
@@ -35,11 +41,6 @@ export class SharedModule {
           provide: BASE_URL,
           useValue: environment.baseUrl
         }, // BASE_URL.
-        {
-          provide: HTTP_INTERCEPTORS,
-          useClass: AddApiTokenHeaderInterceptorService,
-          multi: true
-        },
         ApiTokenService
       ] // providers.
     }; // return.
