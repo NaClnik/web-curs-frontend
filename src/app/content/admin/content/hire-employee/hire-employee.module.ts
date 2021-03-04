@@ -4,6 +4,7 @@ import {HireEmployeeComponent} from './hire-employee.component';
 import {SharedModule} from '../../../../shared/shared.module';
 import {HireEmployeeRoutingModule} from './hire-employee-routing.module';
 import { SelectImageComponent } from './select-image/select-image.component';
+import {ImageCropperModule} from 'ngx-image-cropper';
 
 
 
@@ -12,7 +13,8 @@ import { SelectImageComponent } from './select-image/select-image.component';
   imports: [
     CommonModule,
     SharedModule,
-    HireEmployeeRoutingModule
+    HireEmployeeRoutingModule,
+    ImageCropperModule
   ]
 })
 export class HireEmployeeModule { }
