@@ -37,9 +37,8 @@
           </mat-form-field>
         </div>
 
-
         <div class="button">
-          <button color="primary" type="submit" mat-button>Зарегестрировать</button>
+          <button color="primary" type="submit" mat-button [disabled]="formGroup.invalid">Зарегестрировать</button>
         </div>
       </form>
     </div>
