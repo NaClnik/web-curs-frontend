@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UsersService} from '../services/users.service';
 
 @Component({
   selector: 'app-hire-employee',
@@ -9,7 +10,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class HireEmployeeComponent implements OnInit {
 
   constructor(
-    private readonly fb: FormBuilder
+    private readonly fb: FormBuilder,
+    private readonly usersService: UsersService
   ) { }
 
   public formGroup: FormGroup;
@@ -29,7 +31,11 @@ export class HireEmployeeComponent implements OnInit {
   public openImageModal(): void {
     // TODO: Сделать модальное окно с обрезкой фото.
   } // openImageModal.
-  register() {
-
-  }
+  public register(): void {
+    this.formGroup.value.photo_path = 'https://via.placeholder.com/250';
+    // console.log(this.formGroup.value);
+    this.usersService.registerEmployee(this.formGroup.value).subscribe(value => {
+      console.log(value);
+    })
+  } // register.
 }

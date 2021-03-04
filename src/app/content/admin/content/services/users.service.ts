@@ -26,4 +26,15 @@ export class UsersService {
       }) // catchError.
     ) // pipe.
   } // getEmployeeById.
+
+  public registerEmployee(data: any): Observable<any>{
+    console.log('register employee');
+    return this.http.post('/admin/users', data)
+      .pipe(
+        catchError(err => {
+          console.log(err);
+          return of(null);
+        }) // catchError.
+      ) // pipe.
+  } // registerEmployee.
 } // UsersService.
