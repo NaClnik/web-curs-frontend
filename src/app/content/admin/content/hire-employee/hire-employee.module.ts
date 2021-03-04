@@ -6,11 +6,13 @@ import {HireEmployeeRoutingModule} from './hire-employee-routing.module';
 import { SelectImageComponent } from './select-image/select-image.component';
 import {ImageCropperModule} from 'ngx-image-cropper';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import { CompleteRegisterModalComponent } from './complete-register-modal/complete-register-modal.component';
+import {MatDialog} from '@angular/material/dialog';
 
 
 
 @NgModule({
-  declarations: [HireEmployeeComponent, SelectImageComponent],
+  declarations: [HireEmployeeComponent, SelectImageComponent, CompleteRegisterModalComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -20,6 +22,7 @@ import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
   ],
   providers:[
     FormBuilder,
+    MatDialog
   ]
 })
 export class HireEmployeeModule { }

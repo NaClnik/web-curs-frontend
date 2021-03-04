@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UsersService} from '../services/users.service';
+import {MatDialog} from '@angular/material/dialog';
+import {CompleteRegisterModalComponent} from './complete-register-modal/complete-register-modal.component';
 
 @Component({
   selector: 'app-hire-employee',
@@ -11,7 +13,8 @@ export class HireEmployeeComponent implements OnInit {
 
   constructor(
     private readonly fb: FormBuilder,
-    private readonly usersService: UsersService
+    private readonly usersService: UsersService,
+    private readonly matDialog: MatDialog
   ) { }
 
   public formGroup: FormGroup;
@@ -36,6 +39,7 @@ export class HireEmployeeComponent implements OnInit {
     // console.log(this.formGroup.value);
     this.usersService.registerEmployee(this.formGroup.value).subscribe(value => {
       console.log(value);
+      this.matDialog.open(CompleteRegisterModalComponent);
     })
   } // register.
 }
