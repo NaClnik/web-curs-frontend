@@ -34,12 +34,13 @@ export class HireEmployeeComponent implements OnInit {
   public openImageModal(): void {
     // TODO: Сделать модальное окно с обрезкой фото.
   } // openImageModal.
+
   public register(): void {
     this.formGroup.value.photo_path = 'https://via.placeholder.com/250';
     // console.log(this.formGroup.value);
     this.usersService.registerEmployee(this.formGroup.value).subscribe(value => {
-      console.log(value);
       this.matDialog.open(CompleteRegisterModalComponent);
+      this.formGroup.reset();
     })
   } // register.
 }

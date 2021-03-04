@@ -35,4 +35,8 @@ export class UsersTableComponent implements OnInit {
       this.tableDataSource.paginator = this.paginator;
     }) // subscribe.
   }
+
+  public click(data: any){
+    console.log(data);
+  }
 }
