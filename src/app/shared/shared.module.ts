@@ -8,6 +8,7 @@ import {ApiTokenService} from './services/api-token.service';
 import {AddApiTokenHeaderInterceptorService} from './backend/add-api-token-header-interceptor.service';
 import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
 import {MaterialModule} from './material.module';
+import {AdminGuard} from './auth/guards/admin.guard';
 
 
 
@@ -37,6 +38,7 @@ export class SharedModule {
     return {
       ngModule: SharedModule,
       providers: [
+        AdminGuard,
         {
           provide: BASE_URL,
           useValue: environment.baseUrl
