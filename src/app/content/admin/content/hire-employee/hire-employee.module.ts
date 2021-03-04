@@ -5,6 +5,7 @@ import {SharedModule} from '../../../../shared/shared.module';
 import {HireEmployeeRoutingModule} from './hire-employee-routing.module';
 import { SelectImageComponent } from './select-image/select-image.component';
 import {ImageCropperModule} from 'ngx-image-cropper';
+import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -14,7 +15,11 @@ import {ImageCropperModule} from 'ngx-image-cropper';
     CommonModule,
     SharedModule,
     HireEmployeeRoutingModule,
-    ImageCropperModule
+    ImageCropperModule,
+    ReactiveFormsModule
+  ],
+  providers:[
+    FormBuilder,
   ]
 })
 export class HireEmployeeModule { }
